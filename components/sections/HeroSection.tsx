@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowDown, GitBranch, Mail } from "lucide-react";
 import { contactEmail, socialLinks } from "@/data/social";
+import Link from "next/link";
 
 /**
  * HeroSection — the very first thing visitors see.
@@ -120,19 +121,18 @@ export default function HeroSection() {
               </a>
 
               {githubLink && (
-                <a
-                  href={githubLink.href}
+                <Link
+                  href="/"
                   id="hero-github-btn"
-                  target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View GitHub profile"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg
                              border border-border text-secondary text-sm font-medium
                              hover:border-lime/40 hover:text-lime transition-colors duration-200"
                 >
-                  <GitBranch size={16} aria-hidden="true" />
-                  GitHub
-                </a>
+                  
+                  Download Resume
+                </Link>
               )}
             </div>
           </div>
