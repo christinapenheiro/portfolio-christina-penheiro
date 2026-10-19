@@ -1,26 +1,202 @@
+/*
+  globals.css — Design System for Portfolio
+
+  Next.js 16 ships with Tailwind CSS v4, which is entirely CSS-based.
+  There is NO tailwind.config.ts. All theme customization lives here
+  inside the @theme block.
+
+  Think of @theme as "the dictionary" Tailwind reads to understand class
+  names like `bg-surface`, `text-lime`, or `font-mono`. Whatever you define
+  here becomes a valid Tailwind class automatically.
+*/
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/* ─────────────────────────────────────────────────────────────────────────────
+   THEME DEFINITION
+   Defines all design tokens. Tailwind v4 generates utility classes from these.
+───────────────────────────────────────────────────────────────────────────── */
+@theme {
+  /* ── Fonts ──────────────────────────────────────────────────────────────── */
+  /* These CSS variables are injected by next/font in layout.tsx */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ── Color Palette ───────────────────────────────────────────────────────── */
+
+  /* Backgrounds */
+  --color-base:    #0a0a0a;  /* page background — near-black, not pure black */
+  --color-surface: #111111;  /* cards, navbar — slightly lighter than base   */
+  --color-muted:   #1c1c1c;  /* hover states, alt backgrounds                */
+
+  /* Text */
+  --color-primary:    #e8e8e8;  /* main body text — off-white, easier on eyes */
+  --color-secondary:  #a1a1a1;  /* subtitles, captions, muted labels          */
+  --color-ghost:      #555555;  /* very subtle labels, divider text            */
+
+  /* Accent — lime green */
+  --color-lime:       #a3e635;  /* lime-400: the signature accent              */
+  --color-lime-dim:   #84cc16;  /* lime-500: darker, used for hover            */
+  --color-lime-glow:  #a3e63520; /* lime at 12% opacity for glow effects       */
+
+  /* Borders */
+  --color-border:     #252525;  /* card borders, dividers                      */
+  --color-border-dim: #1a1a1a;  /* very subtle borders                         */
+
+  /* ── Spacing Overrides (inherits Tailwind defaults; add custom if needed) ── */
+
+  /* ── Border Radius ───────────────────────────────────────────────────────── */
+  --radius-card: 0.75rem;   /* 12px — cards, modals             */
+  --radius-badge: 9999px;   /* fully rounded pill for skill badges */
+
+  /* ── Shadows ─────────────────────────────────────────────────────────────── */
+  --shadow-card:      0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.6);
+  --shadow-card-hover: 0 8px 30px rgba(0,0,0,0.5), 0 0 0 1px #a3e63530;
+
+  /* ── Animations ──────────────────────────────────────────────────────────── */
+  --animate-fade-up:      fade-up 0.6s ease forwards;
+  --animate-fade-in:      fade-in 0.5s ease forwards;
+  --animate-pulse-slow:   pulse 3s cubic-bezier(0.4,0,0.6,1) infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─────────────────────────────────────────────────────────────────────────────
+   KEYFRAME ANIMATIONS
+───────────────────────────────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE / RESET STYLES
+   Applied globally to every element by default.
+───────────────────────────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    /* Native smooth scrolling — clicking nav links scrolls smoothly */
+    scroll-behavior: smooth;
+    /* Consistent text rendering on macOS / Windows */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent horizontal overflow from animations */
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-primary);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    line-height: 1.7;
+    /* Prevent layout shift from scrollbar appearing/disappearing */
+    scrollbar-gutter: stable;
+  }
+
+  /* Remove default margins from headings so we control spacing exactly */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* Make images responsive by default */
+  img, video {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Inherit font in form elements (browsers don't do this by default) */
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  /* Remove list styles on ul/ol elements with a role attribute */
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Focus ring: visible but styled to match design */
+  :focus-visible {
+    outline: 2px solid var(--color-lime);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Custom scrollbar (webkit browsers) */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ghost);
+  }
+
+  /* Selection highlight */
+  ::selection {
+    background: var(--color-lime-glow);
+    color: var(--color-lime);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─────────────────────────────────────────────────────────────────────────────
+   UTILITY LAYER
+   Custom utility classes that don't exist in Tailwind by default.
+   These become usable as className="..." in components.
+───────────────────────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Section layout wrapper — use on every section's inner container */
+  .section-container {
+    max-width: 64rem;      /* 1024px max width                              */
+    margin-inline: auto;   /* horizontally centered                          */
+    padding-inline: 1.5rem; /* 24px side padding on mobile                  */
+    padding-block: 6rem;   /* 96px top/bottom on desktop                    */
+  }
+
+  /* Glassmorphism effect — used on the sticky Navbar */
+  .glass {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Lime glow text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, #e8e8e8 0%, #a3e635 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle grid background pattern for hero */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(163, 230, 53, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(163, 230, 53, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Radial fade overlay — used on top of bg-grid to vignette edges */
+  .bg-radial-fade {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, transparent 50%, var(--color-base) 100%);
+  }
 }
