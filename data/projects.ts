@@ -30,6 +30,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "booknook",
+    title: "BookNook",
+    description:
+      "BookNook is an online community library platform where readers can explore books, share their favorite reads, borrow books, and manage their personal book collections. The platform provides a simple and user-friendly experience for discovering and borrowing books.",
+    techStack: [
+      "NextJs",
+      "React",
+      "ExpressJs",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "BetterAuth",
+      "MongoDB",
+      "HTML",
+    ],
+    githubUrl: "https://github.com/christinapenheiro/booknook",
+    liveUrl: "https://booknook-blond.vercel.app",
+    status: "completed",
+    featured: true,
+  },
+  {
     id: "market-price-tracker",
     title: "Market Price Tracker",
     description:
@@ -60,18 +81,6 @@ export const projects: Project[] = [
     githubUrl:
       "https://github.com/christinapenheiro/fitlog-project-using-next.js",
     liveUrl: "https://fitlog-project.vercel.app/",
-    status: "completed",
-    featured: true,
-  },
-  {
-    id: "dev-stack-builder",
-    title: "Dev Stack Builder",
-    description:
-      "A modern and responsive web application for exploring popular web development technologies and building your own personalized technology stack.",
-    techStack: ["React", "TypeScript", "HTML", "Tailwind CSS", "JavaScript"],
-    githubUrl:
-      "https://github.com/christinapenheiro/Dev-Stack-Builder-Website-using-react",
-    liveUrl: "https://dev-stack-technologies.netlify.app/",
     status: "completed",
     featured: false,
   },

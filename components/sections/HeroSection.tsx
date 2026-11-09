@@ -30,10 +30,7 @@ export default function HeroSection() {
       {/* ── Background: subtle lime grid pattern ── */}
       <div className="absolute inset-0 bg-grid" aria-hidden="true" />
       {/* Vignette overlay — fades the grid at edges for depth */}
-      <div
-        className="absolute inset-0 bg-radial-fade"
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 bg-radial-fade" aria-hidden="true" />
       {/* Ambient lime glow — top center */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px]
@@ -44,7 +41,6 @@ export default function HeroSection() {
       {/* ── Content ── */}
       <div className="section-container relative z-10 pt-20 md:pt-28 pb-24 w-full">
         <div className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
-
           {/* ── Left: Text content ── */}
           <div className="flex-1 min-w-0">
             {/* Eyebrow label */}
@@ -55,7 +51,10 @@ export default function HeroSection() {
                          px-3 py-1.5 rounded-full"
               style={{ animation: "fade-up 0.5s ease 0.1s both" }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse-slow" aria-hidden="true" />
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse-slow"
+                aria-hidden="true"
+              />
               Available for opportunities
             </div>
 
@@ -80,7 +79,8 @@ export default function HeroSection() {
               <strong className="text-primary font-semibold">
                 Full-Stack Web Developer
               </strong>{" "}
-              crafting modern, accessible web experiences with React and Next.js.
+              crafting modern, accessible web experiences with React and
+              Next.js.
             </p>
 
             {/* Honest value statement — no fake claims */}
@@ -88,7 +88,8 @@ export default function HeroSection() {
               className="text-sm text-ghost max-w-lg mb-10"
               style={{ animation: "fade-up 0.6s ease 0.35s both" }}
             >
-              Currently learning the full stack. Building in public. Always improving.
+              Currently learning the full stack. Building in public. Always
+              improving.
             </p>
 
             {/* CTA buttons — stack vertically on mobile, row on sm+ */}
@@ -122,7 +123,7 @@ export default function HeroSection() {
 
               {githubLink && (
                 <Link
-                  href="/"
+                  href="https://docs.google.com/document/d/1b-OefJG6vyd1pjVDm2rcPJirf2eA6tKWtz5G_FGyei0/edit?usp=sharing"
                   id="hero-github-btn"
                   rel="noopener noreferrer"
                   aria-label="View GitHub profile"
@@ -130,7 +131,6 @@ export default function HeroSection() {
                              border border-border text-secondary text-sm font-medium
                              hover:border-lime/40 hover:text-lime transition-colors duration-200"
                 >
-                  
                   Download Resume
                 </Link>
               )}
@@ -149,8 +149,10 @@ export default function HeroSection() {
                 aria-hidden="true"
               />
               {/* Gradient ring border */}
-              <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72
-                              rounded-full p-[3px] bg-gradient-to-br from-lime/60 via-lime/20 to-transparent">
+              <div
+                className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72
+                              rounded-full p-[3px] bg-gradient-to-br from-lime/60 via-lime/20 to-transparent"
+              >
                 <div className="w-full h-full rounded-full overflow-hidden bg-surface">
                   <Image
                     src="/profile.png"
@@ -164,7 +166,6 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -175,7 +176,9 @@ export default function HeroSection() {
         style={{ animation: "fade-in 1s ease 1.2s both" }}
         aria-hidden="true"
       >
-        <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
+        <span className="text-xs font-mono tracking-widest uppercase">
+          Scroll
+        </span>
         <ArrowDown size={14} className="animate-bounce" />
       </div>
     </section>
