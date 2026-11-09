@@ -30,25 +30,26 @@ export interface Skill {
 
 export const skills: Skill[] = [
   // ── Currently Using ────────────────────────────────────────────────────────
-  { name: "HTML",         status: "using",    category: "language"  },
-  { name: "CSS",          status: "using",    category: "language"  },
-  { name: "JavaScript",   status: "using",    category: "language"  },
-  { name: "TypeScript",   status: "using",    category: "language"  },
-  { name: "React",        status: "using",    category: "framework" },
-  { name: "Next.js",      status: "using",    category: "framework" },
-  { name: "Tailwind CSS", status: "using",    category: "framework" },
-  { name: "Git",          status: "using",    category: "tool"      },
-  { name: "VS Code",      status: "using",    category: "tool"      },
+  { name: "HTML", status: "using", category: "language" },
+  { name: "CSS", status: "using", category: "language" },
+  { name: "JavaScript", status: "using", category: "language" },
+  { name: "TypeScript", status: "using", category: "language" },
+  { name: "React", status: "using", category: "framework" },
+  { name: "Next.js", status: "using", category: "framework" },
+  { name: "Tailwind CSS", status: "using", category: "framework" },
+  { name: "Git", status: "using", category: "tool" },
+  { name: "VS Code", status: "using", category: "tool" },
+  { name: "Node.js", status: "using", category: "framework" },
+  { name: "Express.js", status: "using", category: "framework" },
+  { name: "REST APIs", status: "using", category: "tool" },
 
   // ── Currently Learning ─────────────────────────────────────────────────────
-  { name: "Node.js",      status: "learning", category: "framework" },
-  { name: "Express",      status: "learning", category: "framework" },
-  { name: "PostgreSQL",   status: "learning", category: "database"  },
-  { name: "REST APIs",    status: "learning", category: "tool"      },
+
+  { name: "PostgreSQL", status: "learning", category: "database" },
 
   // ── Planning to Learn ──────────────────────────────────────────────────────
-  { name: "Docker",       status: "planned",  category: "devops"    },
-  { name: "AWS",          status: "planned",  category: "devops"    },
-  { name: "GraphQL",      status: "planned",  category: "tool"      },
-  { name: "Prisma",       status: "planned",  category: "database"  },
+  { name: "Docker", status: "planned", category: "devops" },
+  { name: "AWS", status: "planned", category: "devops" },
+  { name: "GraphQL", status: "planned", category: "tool" },
+  { name: "Prisma", status: "planned", category: "database" },
 ];

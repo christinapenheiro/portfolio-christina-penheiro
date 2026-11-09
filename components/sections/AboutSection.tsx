@@ -35,7 +35,7 @@ export default function AboutSection() {
               ─────────────────────────────────────────────────────
             */}
             <p>
-              I&apos;m an aspiring full-stack web developer with a genuine
+              I&apos;m an aspiring mern-stack web developer with a genuine
               passion for building things on the web. What started as curiosity about
               how websites worked has grown into a focused goal: becoming a professional
               developer who ships real products people use.
@@ -73,7 +73,7 @@ export default function AboutSection() {
                 { label: "Location",   value: "Rangamati, Bangladesh" },  // ← replace
                 { label: "Focus",      value: "Full-Stack Web Dev"  },
                 { label: "Currently",  value: "Open to junior roles & internships" },
-                { label: "Learning",   value: "Node.js, MongoDB, REST APIs" },
+                // { label: "Learning",   value: "Node.js, MongoDB, REST APIs" },
                 { label: "Goal",       value: "Ship real products, grow fast" },
               ].map(({ label, value }) => (
                 <div key={label} className="flex flex-col gap-0.5">

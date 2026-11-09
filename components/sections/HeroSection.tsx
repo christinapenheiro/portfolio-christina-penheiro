@@ -77,7 +77,7 @@ export default function HeroSection() {
             >
               Aspiring{" "}
               <strong className="text-primary font-semibold">
-                Full-Stack Web Developer
+                Mern Stack Web Developer
               </strong>{" "}
               crafting modern, accessible web experiences with React and
               Next.js.
